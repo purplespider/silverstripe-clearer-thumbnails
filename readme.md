@@ -16,7 +16,7 @@ It also increases the size of thumbnail images to ensure they remain crips on Hi
 
 1. Install module via composer:
 ````
-composer require purplespider/silverstripe-clearer-thumbnails 1.*
+composer require purplespider/silverstripe-clearer-thumbnails "1.*"
 ````
 2. Perform a flush: 
 ````
