@@ -1,0 +1,22 @@
+# Run: php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask generate-cms-thumbnails
+
+# Changes ThumbnailGenerator method from FitMax to Fill, to generate appropriatly sized thumbnail images which don't need to be upscaled. 
+SilverStripe\AssetAdmin\Model\ThumbnailGenerator:
+  method: Fill
+
+# Doubles UploadField thumbnail size for sharpness on on HiDPI/Retina
+SilverStripe\AssetAdmin\Forms\UploadField:
+  thumbnail_width: 120
+  thumbnail_height: 120
+
+# Increase Files area preview image size for sharpness on HiDPI/Retina
+SilverStripe\Assets\Image:
+  asset_preview_width: 1008
+  asset_preview_height: 672
+
+# Ensures the generate-cms-thumbnails task (necessary to update existing Files thumbnails) will act on images up to 100MB (rather than just 9MB)
+# See: https://docs.silverstripe.org/en/4/developer_guides/files/file_migration/#performance
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\AssetAdmin\Helper\ImageThumbnailHelper:
+    constructor:
+      0: '100MB'
