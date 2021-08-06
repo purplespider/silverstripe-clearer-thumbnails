@@ -1,4 +1,6 @@
-# Run: php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask generate-cms-thumbnails
+---
+Name: clearer-thumbnails
+---
 
 # Changes ThumbnailGenerator method from FitMax to Fill, to generate appropriatly sized thumbnail images which don't need to be upscaled. 
 SilverStripe\AssetAdmin\Model\ThumbnailGenerator:
