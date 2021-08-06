@@ -22,7 +22,7 @@ composer require purplespider/silverstripe-clearer-thumbnails 1.*
 ````
 https://www.example.com?flush=1
 ````
-5. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
+3. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
 ````
 php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask generate-cms-thumbnails
 ````
