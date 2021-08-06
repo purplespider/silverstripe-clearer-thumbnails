@@ -18,7 +18,11 @@ It also increases the size of thumbnail images to ensure they remain crips on Hi
 ````
 composer require purplespider/silverstripe-clearer-thumbnails
 ````
-2. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab.
+2. Perform a flush: 
+````
+https://www.example.com?flush=1
+````
+5. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
 ````
 php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask generate-cms-thumbnails
 ````
@@ -29,3 +33,7 @@ It simply overrides some settings via a config file to:
 1. Change `ThumbnailGenerator` `$method` from `FitMax` to `Fill` which avoids thumbnails being generated too small and then stretched.
 2. Doubles the `UploadField` `$thumbnail_width` and `$thumbnail_height` from `60` to `120` to ensure thumbnails are crisp on HiDPI/Retina displays.
 3. Increases the `Image` `$asset_preview_width` and `$asset_preview_height` to ensure image previews in the Files area are crisp on HiDPI/Retina displays.
+
+## Updating
+
+Any updates to this module which require the `generate-cms-thumbnails` task to be re-run will be tagged as a new major version. So when updating major versions please remember to do this.
