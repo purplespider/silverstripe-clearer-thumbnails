@@ -24,7 +24,7 @@ https://www.example.com?flush=1
 ````
 3. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
 ````
-php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask generate-cms-thumbnails
+php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask only=generate-cms-thumbnails
 ````
 
 ## What exactly does this do?
@@ -37,3 +37,7 @@ It simply overrides some settings via a [config file](https://github.com/purples
 ## Updating
 
 Any updates to this module which require the `generate-cms-thumbnails` task to be re-run will be tagged as a new major version. So when updating major versions please remember to do this.
+
+## Notes/Tips
+* On sites with lots of images, the migration task is a resource intensive process which can take a while. Use `cpulimit` to limit the effect it has on the site, e.g. `cpulimit -p 1234 -l 50`
+* Possible issue with assets in a symlinked location not getting updated via the migration task, suggest temporarily replacing the symlink with the assets dir before running the task if you experience this.
