@@ -22,10 +22,12 @@ composer require purplespider/silverstripe-clearer-thumbnails "1.*"
 ````
 https://www.example.com?flush=1
 ````
-3. For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
+3. For Silverstripe 4: For sites with existing assets, run the generate-cms-thumbnails task to re-generate the thumbnails for the Files tab (otherwise no thumbnails will appear).
 ````
 php vendor/silverstripe/framework/cli-script.php dev/tasks/MigrateFileTask only=generate-cms-thumbnails
 ````
+
+Silverstripe 5 doesn't provide the MigrateFileTask anymore.
 
 ## What exactly does this do?
 
@@ -33,10 +35,6 @@ It simply overrides some settings via a [config file](https://github.com/purples
 1. Change `ThumbnailGenerator` `$method` from `FitMax` to `Fill` which avoids thumbnails being generated too small and then stretched.
 2. Doubles the `UploadField` `$thumbnail_width` and `$thumbnail_height` from `60` to `120` to ensure thumbnails are crisp on HiDPI/Retina displays.
 3. Increases the `Image` `$asset_preview_width` and `$asset_preview_height` to ensure image previews in the Files area are crisp on HiDPI/Retina displays.
-
-## Updating
-
-Any updates to this module which require the `generate-cms-thumbnails` task to be re-run will be tagged as a new major version. So when updating major versions please remember to do this.
 
 ## Notes/Tips
 * On sites with lots of images, the migration task is a resource intensive process which can take a while. Use `cpulimit` to limit the effect it has on the site, e.g. `cpulimit -p 1234 -l 50`

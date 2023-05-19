@@ -13,6 +13,6 @@
         "issues": "http://github.com/purplespider/silverstripe-clearer-thumbnails/issues"
     },
     "require": {
-        "silverstripe/cms": "^4"
+        "silverstripe/cms": "^4 || ^5.0"
     }
 }
