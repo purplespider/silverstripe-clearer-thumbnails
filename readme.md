@@ -1,6 +1,6 @@
 # Clearer Thumbnails for Silverstripe
 
-This module fixes an [issue](https://github.com/silverstripe/silverstripe-asset-admin/pull/1224#issuecomment-894128575) in Silverstripe 4 which results in particularly tall or wide images having pixelated/blurry thumbnails in the CMS, particularly for `UploadFields`.
+This module fixes an [issue](https://github.com/silverstripe/silverstripe-asset-admin/pull/1224#issuecomment-894128575) in Silverstripe 4, 5 and 6 which results in particularly tall or wide images having pixelated/blurry thumbnails in the CMS, particularly for `UploadFields`.
 
 Before:
 
